@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="ordenando.js"></script>
+</head>
+<body>
+    <form>
+        <label>Valor</label> <input type="number" id="Valor">
+    </form>
+
+    <a href="#" onclick="add()">Adicionar</a>
+
+    <select id="oper">
+        <option>Blubble sort</option> <option>Selection Sort</option> <option>Quick Sort</option>
+    </select>
+
+    <a href="#" onclick="ordenar()">Ordenar</a>
+
+    <a href="#" onclick="misturar()">Misturar</a>
+
+    <ul id="valores"></ul>
+
+   
+    <script>
+        const add = () => {
+            const a = eval(document.getElementById("valor"));
+            const node = document.createElement('li');
+            node.numberContent = "".valueOf;
+            const lista = document.getElementById('valores'); // Supondo que exista um <ul> ou <ol> com este ID
+                lista.appendChild(node);
+        }
+        const ordenar = () => {  
+        }
+        const misturar = () => {}
+    </script>
+</body>
+</html>
