@@ -1,40 +1,134 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ordenação de Números</title>
     <script src="ordenando.js"></script>
 </head>
 <body>
-    <form>
-        <label>Valor</label> <input type="number" id="Valor">
-    </form>
+    <h1>Ordenação de Números</h1>
+    
+    <input type="number" id="valor" placeholder="Digite um número">
+    <button onclick="add()">Adicionar</button>
 
-    <a href="#" onclick="add()">Adicionar</a>
-
-    <select id="oper">
-        <option>Blubble sort</option> <option>Selection Sort</option> <option>Quick Sort</option>
+    <select id="algoritmo">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="quick">Quick Sort</option>
     </select>
-
-    <a href="#" onclick="ordenar()">Ordenar</a>
-
-    <a href="#" onclick="misturar()">Misturar</a>
+    <button onclick="ordenar()">Ordenar</button>
+    <button onclick="misturar()">Misturar</button>
 
     <ul id="valores"></ul>
 
-   
     <script>
-        const add = () => {
-            const a = eval(document.getElementById("valor"));
-            const node = document.createElement('li');
-            node.numberContent = "".valueOf;
-            const lista = document.getElementById('valores'); // Supondo que exista um <ul> ou <ol> com este ID
+        function add() {
+            var input = document.getElementById("valor");
+            var lista = document.getElementById("valores");
+            var node = document.createElement("li");
+            var texto = document.createTextNode(input.value);
+            node.appendChild(texto);
+            lista.appendChild(node);
+            input.value = ""; // Limpa o campo após adicionar
+        }
+
+        function ordenar() {
+            var lista = document.getElementById("valores");
+            var algoritmo = document.getElementById("algoritmo");
+            var valores = [];
+
+            for (var i = 0; i < lista.children.length; i++) {
+                valores.push(eval(lista.children[i].innerHTML));
+            }
+
+            switch (algoritmo.selectedIndex) {
+                case 0:
+                    // Bubble Sort
+                    bubbleSort(valores);
+                    break;
+                case 1:
+                    // Selection Sort
+                    selectionSort(valores);
+                    break;
+                case 2:
+                    // Quick Sort
+                    quickSort(valores);
+                    break;
+            }
+
+            lista.innerHTML = ""; // Limpa a lista antes de atualizar
+            valores.map(function(valor) {
+                var node = document.createElement("li");
+                node.appendChild(document.createTextNode(valor));
                 lista.appendChild(node);
+            });
         }
-        const ordenar = () => {  
+
+        function misturar() {
+            var lista = document.getElementById("valores");
+            var valores = [];
+
+            for (var i = 0; i < lista.children.length; i++) {
+                valores.push(eval(lista.children[i].innerHTML));
+            }
+
+            shuffle(valores);
+
+            lista.innerHTML = ""; // Limpa a lista antes de atualizar
+            valores.map(function(valor) {
+                var node = document.createElement("li");
+                node.appendChild(document.createTextNode(valor));
+                lista.appendChild(node);
+            });
         }
-        const misturar = () => {}
+
+        // Função de embaralhamento
+        function shuffle(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Exemplos de funções de ordenação
+        function bubbleSort(arr) {
+            let n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                for (let j = 0; j < n - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    }
+                }
+            }
+        }
+
+        function selectionSort(arr) {
+            let n = arr.length;
+            for (let i = 0; i < n - 1; i++) {
+                let minIdx = i;
+                for (let j = i + 1; j < n; j++) {
+                    if (arr[j] < arr[minIdx]) {
+                        minIdx = j;
+                    }
+                }
+                [arr[i], arr[minIdx]] = [arr[minIdx], arr[i]];
+            }
+        }
+
+        function quickSort(arr) {
+            if (arr.length <= 1) return arr;
+            const pivot = arr[arr.length - 1];
+            const left = [], right = [];
+            for (let i = 0; i < arr.length - 1; i++) {
+                if (arr[i] < pivot) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            return [...quickSort(left), pivot, ...quickSort(right)];
+        }
     </script>
 </body>
 </html>

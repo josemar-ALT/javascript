@@ -1,246 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogo de receitas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>Catálogo de Receitas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffc107; /* bg-warning */
+        }
+    </style>
 </head>
-<body class="container-fluid bg-warning">
-    <header>
-        <h1>BEM VINDO A PAGINA DE RECEITAS</h1>
-        <a href="menu.html">HOME</a>
-    </header>
-    <main class="bg-warning" id="pnlCatalogo">
-        <div class="flex-wrap">
-            <img class="card-img-top" src="img/atum.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">sanduiche de atum</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>1 lata de atum natural (em água);</li>
-                        <li>½ talo de aipo;</li>
-                        <li>1 e ½ colher (de sopa) de alho;</li>
-                        <li>1 colher (de chá) de Picles;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>¼ xícara (de café) de cebola;</li>
-                        <li>1 colher (de chá) de salsinha;</li>
-                        <li>2 fatias de tomate;</li>
-                        <li>1 fatia de alface.</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-Escorra a água da lata de atum e pique os demais ingredientes.</li> 
-                        <li>-Em um pequeno refratário, misture-os, e os mexa até formar um patê.</li> 
-                        <li>-Disponha o patê no pão sírio, e acrescente as fatias de tomate e alface.</li> 
-                        <li>-Feche o pão e sirva em seguida. </li>  
-                        <li>-Coma em temperatura ambiente ou gelado.</li>
-                    </ul>
-            </div>   
-            </div>
+<body onload="preencheCatalogo()">
+    <div class="container-fluid">
+        <h1 class="text-center">Catálogo de Receitas</h1>
+        <div id="pnlCatalogo" class="d-flex flex-wrap">
+            <!-- Painéis das receitas serão preenchidos aqui -->
         </div>
+    </div>
 
-        
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="img/biscoito.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">biscoito</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>200 grmas de farinha de trigo;</li>
-                        <li>125 gramas de manteiga sem sal;</li>
-                        <li>1 unidade de ovo;</li>
-                        <li>70 gramas de açucar;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>1 colher de cafe de essencia de baunilha;</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-preparar todos os ingredientes.</li> 
-                        <li>-Em seguida coloque a manteiga amolecida numa tigela junto com o açúcar de confeiteiro, e bata até obter uma mistura cremosa e lisa.</li> 
-                        <li>-Em seguida acrescente o ovo batido e a essência de baunilha. Volte a bater.</li> 
-                        <li>-Finalmente, adicione a farinha peneirada, e misture até obter uma massa lisa e cremosa. </li>  
-                        <li>-modele no formato que desejar. Leve a assar no forno preaquecido a 180ºC por 10 minutos.</li>
-                    </ul>
-            </div>   
-            </div>
-        </div>
+    <script>
+        const receitas = [
+            {
+                titulo: "Torta de atum",
+                imagem: "img/atum.jpg",
+                preparo: "Misture todos os ingredientes e asse por 30 minutos.",
+                ingredientes: [
+                    "1 lata de atum natural (em água)",
+                    "½ talo de aipo",
+                    "1 e ½ colher (de sopa) de alho",
+                    "4 ovo1 colher (de chá) de Picles",
+                    "1 xícara 2 colheres (de sopa) de maionese light",
+                    "¼ xícara (de café) de cebola",
+                    "1 colher (de chá) de salsinha"
+                ]
+            },
+            {
+                titulo: "biscoito amanteigado",
+                imagem: "img/biscoito.jpg",
+                preparo: "Prepare todos os ingredientes e Leve a assar no forno preaquecido a 180ºC por 10 minutos.",
+                ingredientes: [
+                    "200 grmas de farinha de trigo",
+                    "125 gramas de manteiga sem sal",
+                    "1 unidade de ovo",
+                    "70 gramas de açucar",
+                    "2 colheres (de sopa) de maionese light"
+                ]
+            },
+            {
+                titulo: "Cuscuz recheado",
+                imagem: "img/cuscuz.jpg",
+                preparo: "cozinhar a fuba e misturar tudo",
+                ingredientes: [
+                    "fuba",
+                    "calabres",
+                    "3 ovos",
+                    "2 tomate",
+                    "2 sebolas"
+                ]
+            }
+            // Adicione mais receitas conforme necessário
+        ];
 
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="img/cuscuz.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">cuscuz recheado</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>1 lata de atum natural (em água);</li>
-                        <li>½ talo de aipo;</li>
-                        <li>1 e ½ colher (de sopa) de alho;</li>
-                        <li>1 colher (de chá) de Picles;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>¼ xícara (de café) de cebola;</li>
-                        <li>1 colher (de chá) de salsinha;</li>
-                        <li>2 fatias de tomate;</li>
-                        <li>1 fatia de alface.</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-Escorra a água da lata de atum e pique os demais ingredientes.</li> 
-                        <li>-Em um pequeno refratário, misture-os, e os mexa até formar um patê.</li> 
-                        <li>-Disponha o patê no pão sírio, e acrescente as fatias de tomate e alface.</li> 
-                        <li>-Feche o pão e sirva em seguida. </li>  
-                        <li>-Coma em temperatura ambiente ou gelado.</li>
-                    </ul>
-            </div>   
-            </div>
-        </div>
+        function getListaIngredientes(receita) {
+            let texto = '<ul>';
+            receita.ingredientes.map(ingrediente => {
+                texto += `<li>${ingrediente}</li>`;
+            });
+            texto += '</ul>';
+            return texto;
+        }
 
+        function getCard(receita) {
+            return `
+                <div class="card" style="width: 250px; margin: 10px;">
+                    <img src="${receita.imagem}" class="card-img-top" alt="${receita.titulo}">
+                    <div class="card-body">
+                        <h5 class="card-title">${receita.titulo}</h5>
+                        <div class="card-text">
+                            ${getListaIngredientes(receita)}
+                            <hr>
+                            <p>${receita.preparo}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
 
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="img/empada.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">Empada de frango</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>1 lata de atum natural (em água);</li>
-                        <li>½ talo de aipo;</li>
-                        <li>1 e ½ colher (de sopa) de alho;</li>
-                        <li>1 colher (de chá) de Picles;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>¼ xícara (de café) de cebola;</li>
-                        <li>1 colher (de chá) de salsinha;</li>
-                        <li>2 fatias de tomate;</li>
-                        <li>1 fatia de alface.</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-Escorra a água da lata de atum e pique os demais ingredientes.</li> 
-                        <li>-Em um pequeno refratário, misture-os, e os mexa até formar um patê.</li> 
-                        <li>-Disponha o patê no pão sírio, e acrescente as fatias de tomate e alface.</li> 
-                        <li>-Feche o pão e sirva em seguida. </li>  
-                        <li>-Coma em temperatura ambiente ou gelado.</li>
-                    </ul>
-            </div>   
-            </div>
-        </div>
-
-
-
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="img/feijao.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">\Feijão tropeiro</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>1 lata de atum natural (em água);</li>
-                        <li>½ talo de aipo;</li>
-                        <li>1 e ½ colher (de sopa) de alho;</li>
-                        <li>1 colher (de chá) de Picles;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>¼ xícara (de café) de cebola;</li>
-                        <li>1 colher (de chá) de salsinha;</li>
-                        <li>2 fatias de tomate;</li>
-                        <li>1 fatia de alface.</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-Escorra a água da lata de atum e pique os demais ingredientes.</li> 
-                        <li>-Em um pequeno refratário, misture-os, e os mexa até formar um patê.</li> 
-                        <li>-Disponha o patê no pão sírio, e acrescente as fatias de tomate e alface.</li> 
-                        <li>-Feche o pão e sirva em seguida. </li>  
-                        <li>-Coma em temperatura ambiente ou gelado.</li>
-                    </ul>
-            </div>   
-            </div>
-        </div>
-
-        <div class="card" style="width: 25rem;">
-            <img class="card-img-top" src="img/haburge.jpg" alt="Imagem de capa do card">
-            <div class="card-body">
-            <h5 class="card-title">Hamburger</h5>
-            <h6>ingredientes</h6>
-            <div class="text">
-                    <ul>
-                        <li>1 lata de atum natural (em água);</li>
-                        <li>½ talo de aipo;</li>
-                        <li>1 e ½ colher (de sopa) de alho;</li>
-                        <li>1 colher (de chá) de Picles;</li>
-                        <li>2 colheres (de sopa) de maionese light;</li>
-                        <li>¼ xícara (de café) de cebola;</li>
-                        <li>1 colher (de chá) de salsinha;</li>
-                        <li>2 fatias de tomate;</li>
-                        <li>1 fatia de alface.</li>
-                    </ul>
-            </div>
-            <h6>Modo de preparo</h6>
-            <div class="text">  
-                    <ul>
-                        <li>-Escorra a água da lata de atum e pique os demais ingredientes.</li> 
-                        <li>-Em um pequeno refratário, misture-os, e os mexa até formar um patê.</li> 
-                        <li>-Disponha o patê no pão sírio, e acrescente as fatias de tomate e alface.</li> 
-                        <li>-Feche o pão e sirva em seguida. </li>  
-                        <li>-Coma em temperatura ambiente ou gelado.</li>
-                    </ul>
-            </div>   
-            </div>
-        </div>
-    </main>
-<footer><p> Andrade &copy; 2024</p></footer>
-<script>
-  receitas =  [
-  {
-    "titulo": "Bolo de Chocolate",
-    "imagem": "url_da_imagem_do_bolo_de_chocolate.jpg",
-    "preparo": "Misture os ingredientes secos e úmidos. Asse em forno pré-aquecido por 30 minutos.",
-    "ingredientes": [
-      "2 xícaras de farinha de trigo",
-      "1 xícara de açúcar",
-      "1/2 xícara de cacau em pó",
-      "1 xícara de leite",
-      "1/2 xícara de óleo",
-      "3 ovos",
-      "1 colher de sopa de fermento em pó"
-    ]
-  },
-  {
-    "titulo": "Salada Caesar",
-    "imagem": "url_da_imagem_da_salad_caesar.jpg",
-    "preparo": "Misture a alface, croutons e o molho Caesar. Sirva com queijo parmesão.",
-    "ingredientes": [
-      "1 cabeça de alface romana",
-      "1 xícara de croutons",
-      "1/2 xícara de molho Caesar",
-      "1/4 xícara de queijo parmesão ralado",
-      "pimenta-do-reino a gosto"
-    ]
-  },
-  {
-    "titulo": "Sopa de Abóbora",
-    "imagem": "url_da_imagem_da_sopa_de_abobora.jpg",
-    "preparo": "Cozinhe a abóbora até ficar macia. Bata no liquidificador e tempere.",
-    "ingredientes": [
-      "500g de abóbora",
-      "1 cebola picada",
-      "2 dentes de alho",
-      "4 xícaras de caldo de legumes",
-      "sal e pimenta a gosto"
-    ]
-  }
-]
-</script>
+        function preencheCatalogo() {
+            const pnlCatalogo = document.getElementById('pnlCatalogo');
+            const html = receitas.map(getCard).join('');
+            pnlCatalogo.innerHTML = html;
+        }
+    </script>
 </body>
 </html>
